@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашнее задание №3</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="main">
+                <form action="#" method="post" class="form">
+                    <div class="form-group">
+                        <svg width="100px" height="100px" viewBox="-3.2 -3.2 38.40 38.40"
+                            xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="0.00032"
+                            transform="rotate(0)">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"
+                                stroke="#CCCCCC" stroke-width="0.064"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <defs>
+                                    <style>
+                                        .cls-1 {
+                                            fill: #04009a;
+                                        }
+
+                                        .cls-2 {
+                                            fill: #77acf1;
+                                        }
+                                    </style>
+                                </defs>
+                                <g data-name="26. Clipboard" id="_26._Clipboard">
+                                    <path class="cls-1"
+                                        d="M25,32H7a3,3,0,0,1-3-3V7A3,3,0,0,1,7,4H8A1,1,0,0,1,8,6H7A1,1,0,0,0,6,7V29a1,1,0,0,0,1,1H25a1,1,0,0,0,1-1V16a1,1,0,0,1,2,0V29A3,3,0,0,1,25,32Z">
+                                    </path>
+                                    <path class="cls-1"
+                                        d="M27,13a1,1,0,0,1-1-1V7a1,1,0,0,0-1-1H20a1,1,0,0,1,0-2h5a3,3,0,0,1,3,3v5A1,1,0,0,1,27,13Z">
+                                    </path>
+                                    <path class="cls-1"
+                                        d="M19,8H13a2,2,0,0,1-2-2V4a2,2,0,0,1,2-2h6a2,2,0,0,1,2,2V6A2,2,0,0,1,19,8ZM13,4V6h6V4Z">
+                                    </path>
+                                    <path class="cls-1" d="M16,4a1,1,0,0,1-1-1V1a1,1,0,0,1,2,0V3A1,1,0,0,1,16,4Z">
+                                    </path>
+                                    <path class="cls-1"
+                                        d="M13,17H9a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1v4A1,1,0,0,1,13,17Zm-3-2h2V13H10Z">
+                                    </path>
+                                    <path class="cls-1"
+                                        d="M13,26H9a1,1,0,0,1-1-1V21a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1v4A1,1,0,0,1,13,26Zm-3-2h2V22H10Z">
+                                    </path>
+                                    <path class="cls-2" d="M23,15H17a1,1,0,0,1,0-2h6a1,1,0,0,1,0,2Z"></path>
+                                    <path class="cls-2" d="M23,24H17a1,1,0,0,1,0-2h6a1,1,0,0,1,0,2Z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form__label" for="search">Поиск: </label>
+                        <div class="form-group-icon">
+                            <input class="form__input" id="search" type="search" placeholder="Найди что-нибудь!">
+                            <img src="search.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form__label" for="url">URL: </label>
+                        <div class="form-group-icon">
+                            <input class="form__input" id="url" type="url" placeholder="https://www.site.com">
+                            <img src="www.png" alt="">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="user-name" class="form__label">Введите Ваше имя:</label>
+                        <div class="form-group-icon">
+                            <input type="text" class="form__input" placeholder="Акакий" name="user-name" id="user-name"
+                                required>
+                            <img src="name.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-surname" class="form__label">Введите Вашу фамилию:</label>
+                        <div class="form-group-icon">
+                            <input type="text" class="form__input" placeholder="Башмачкин" name="user-surname"
+                                id="user-surname" required>
+                            <img src="surname.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form__label" for="password">Введите пароль: </label>
+                        <div class="form-group-icon">
+                            <input class="form__input" id="password" type="password">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form__label" for="tel">Введите Ваш телефон: </label>
+                        <div class="form-group-icon">
+                            <input class="form__input" id="tel" type="tel">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="user-sex" class="form__label">Укажите Ваш пол: </label>
+                        <div class="form-group-icon" id="user-sex">
+                            <label for="user-woman">
+                                <input type="radio" id="user-woman" name="user-sex" value="Мужской">
+                                <span style="color: #1172f0;">Мужской
+                                </span>
+                            </label>
+                            <label for="user-man">
+                                <input type="radio" id="user-man" name="user-sex" value="Женский">
+                                <span style="color: rgb(148, 29, 49);">Женский
+                                </span>
+                            </label>
+                            <img src="female.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-email" class="form__label">Введите Ваш адрес электронной почты: </label>
+                        <div class="form-group-icon">
+                            <input type="email" name="user-email" id="user-email" class="form__input" required
+                                placeholder="kisa@mail.ru">
+                            <img src="email.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date" class="form__label">Введите дату мероприятия: </label>
+                        <div class="form-group-icon">
+                            <input type="date" name="date" id="date" required>
+                            <img src="desktop-calendar.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="datetime" class="form__label">Введите конкретную дату мероприятия: </label>
+                        <div class="form-group-icon">
+                            <input id="datetime" type="datetime">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="datetime-local" class="form__label">Введите конкретную дату мероприятия без часового
+                            пояса: </label>
+                        <div class="form-group-icon">
+                            <input id="datetime-local" type="datetime-local">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form__label" for="month">Введите месяц: </label>
+                        <div class="form-group-icon">
+                            <input id="month" type="month">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form__label" for="week">Введите неделю: </label>
+                        <div class="form-group-icon">
+                            <input id="week" type="week">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form__label" for="time">Введите время: </label>
+                        <div class="form-group-icon">
+                            <input id="time" type="time">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="number-users" class="form__label">Укажите количество персон: </label>
+                        <div class="form-group-icon">
+                            <input type="number" class="form__number" name="number-users" id="number-users"
+                                required min="1" max="10">
+                            <img src="man.png" class="img-icon" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-foods" class="form__label">Выберите приём пищи: </label>
+                        <div class="form-group-icon">
+                            <select name="user-foods" class="form__input" id="user-foods">
+                                <option value="Завтрак">Завтрак</option>
+                                <option value="Обед">Обед</option>
+                                <option value="Ужин">Ужин</option>
+                            </select>
+                            <img src="dinner.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="align-items: initial;">
+
+                        <label class="form__label">Выберите (по желанию) дополнительные желания</label>
+
+                        <label for="no-add-ons">
+                            <input type="checkbox" checked id="no-add-ons" value="Без дополнений">
+                            Без дополнений
+                        </label>
+                        <label class="form-input" for="music">
+                            <input type="checkbox" id="music" value="Музыка">
+                            Музыка
+                        </label>
+                        <label class="form-input" for="joker">
+                            <input type="checkbox" id="joker" value="Шуты">
+                            Шуты
+                        </label>
+                        <label class="form-input" for="aquadance">
+                            <input type="checkbox" id="aquadance" value="Аквадискотека">
+                            Аквадискотека
+                        </label>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="grade" class="form__label">Ваша оценка: </label>
+                        <div class="group__range">
+                            <input type="range" min="0" max="10" id="grade" name="grade" list="markers">
+                            <datalist class="form__datalist" id="markers">
+                                <option class="form__option" value="0" label="0"></option>
+                                <option class="form__option" value="1" label="1"></option>
+                                <option class="form__option" value="2" label="2"></option>
+                                <option class="form__option" value="3" label="3"></option>
+                                <option class="form__option" value="4" label="4"></option>
+                                <option class="form__option" value="5" label="5"></option>
+                                <option class="form__option" value="6" label="6"></option>
+                                <option class="form__option" value="7" label="7"></option>
+                                <option class="form__option" value="8" label="8"></option>
+                                <option class="form__option" value="9" label="9"></option>
+                                <option class="form__option" value="10" label="10"></option>
+                            </datalist>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-icon">
+                            <textarea class="form__textarea" name="comment" id="comment" cols="40" rows="5"
+                                placeholder="Введите Ваш комментарий"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-icon">
+                            <input type="image">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-icon">
+                            <input type="color">
+                            <img src="color.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Вставьте файл: </label>
+                        <div class="form-group-icon">
+                            <input type="file" name="file" id="file">
+                        </div>
+                    </div>
+
+                    <div class="form__btns">
+                        <input class="form__btn" type="submit" value="Отправить">
+                        <input class="form__btn" type="reset">
+                        <input class="form__btn" type="button" value="Оценить">
+                    </div>
+
+                    <input type="hidden" value="###">
+
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
