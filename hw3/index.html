@@ -13,10 +13,17 @@
 </head>
 
 <body>
+        <!--
+            1. div_bg-first - модификатор bg-first не может быть без блока. То есть тут есть модификатор, а блока нет (должно быть <div class="top-banner div div_bg-first">, например)
+            2. Название блока "div" плохое, оно не описывает что это из себя представляет (например top-banner +- неплохое название, из которого сразу понятно, что тут какой-то баннер расположенный сверху (но всё же лучше не использовать прилагательные в названии блоков и элементов))
+            3. Этот div_bg-first тут не нужен совсем. Он задает только цвет фона, который можно без проблем вставить внутри top-banner
+
+            Я вижу, что такое есть много где еще, поэтому стоит все такие места исправить
+        -->
     <div class="top-banner div_bg-first">
         <div class="container">
-            <h1 class="top-banner__AI-Help">
-                Get real-time assistance with your coding queries. Try <span class="top-banner__AI-Help_color">AI
+            <h1 class="top-banner__AI-Help"> <!-- В названии классов, желательно, чтобы всё было в нижнем регистре-->
+                Get real-time assistance with your coding queries. Try <span class="top-banner__AI-Help_color">AI <!-- "AI Help" это ссылка-->
                     Help</span> now!
             </h1>
         </div>
@@ -105,6 +112,7 @@
                 </div>
             </div>
         </header>
+
         <div class="header__visit-refs div_bg-first div_border-bottom">
             <div class="container visit-refs__refs">
                 <h3 class="visit-refs__ref">References</h3>
@@ -112,6 +120,7 @@
             </div>
         </div>
     </div>
+
     <main>
         <div class="container">
             <div class="wrapper">

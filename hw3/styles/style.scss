@@ -61,6 +61,14 @@ body {
 
 .top-banner {
     .top-banner__AI-Help {
+        /* Такая вложенность в CSS превратится в такое ".top-banner .top-banner__ai-help" (вес = 2, вместо 1)  Вместо этого стоит писать так
+          .top-banner {
+             ...
+             &__ai-help {
+             ....
+
+             В таком случае, в CSS вместо & автоматически подставится название родительского класса (top-banner)
+         */
         text-align: center;
         padding: 12px;
         font-size: 1rem;
@@ -72,14 +80,17 @@ body {
 }
 
 .header-sticky {
-    position: sticky;
+    position: sticky; /* Тут ты явно указываешь позицию, а это та самая "внешняя геометрия""*/
     top: -1px;
     z-index: 1000;
 
     .header {
-
+    /*
+        Вообще стоит избегать вложенности где не используется &. В данном случае, header-sticky, header, header-main должны лежать не внутри друг друга а на одном уровне. А уже header-main__logo лежит внутри header-main, но при этом нужно использовать &.
+        Если оставить так, то когда ты будешь использовать header блок в другом месте, стили банально не применятся, поскольку ты явно указал "применить стили для header Только в том случае, когда он лежит внутри header-sticky
+    */
         .header-main {
-            height: var(--header-height);
+            height: var(--header-height); /* Опять же, явно указало высоту блока, вместо того, чтобы указать её в селекторе */
             font-size: 0.8rem;
             padding: 10px;
 
@@ -87,12 +98,12 @@ body {
                 display: flex;
                 align-items: center;
 
-                & a .logo-_,
+                & a .logo-_, /*Странное название logo-*/
                 & .logo-m {
                     fill: #0069c2;
                 }
 
-                & a svg {
+                & a svg { /* Использовал теги вместо классов */
                     height: 1.7rem;
                 }
             }
