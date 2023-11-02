@@ -1,11 +1,12 @@
-let header__nav_open = document.querySelector('.header__nav_open');
+let headerMainNavBtnBlock = document.querySelector('.header-main__nav-btn');
 
-header__nav_open.addEventListener('click', function (params) {
-    let header__nav_view = document.querySelector('.header__nav_view');
+headerMainNavBtnBlock.addEventListener('click', function (params) {
+    let headerNavView = document.querySelector('.header-main__nav');
 
-   header__nav_view.classList.toggle('header__nav_flex');
+    headerNavView.classList.toggle('header-main__nav_flex');
 
-   header__nav_open.children[0].classList.toggle('display_none');
-   header__nav_open.children[1].classList.toggle('display_block');
+    headerMainNavBtnBlock.children[0].classList.toggle('header-main__nav-btn_none');
+    headerMainNavBtnBlock.children[1].classList.toggle('header-main__nav-btn_none');
+    headerMainNavBtnBlock.children[1].classList.toggle('header-main__nav-btn_block');
 
 })

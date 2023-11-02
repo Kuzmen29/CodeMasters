@@ -1,23 +1,8 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-:root {
-  --light-theme-color: black;
-  --dark-theme-color: white;
-  --light-theme-bg-first: rgb(249, 249, 251);
-  --light-theme-bg-second: rgb(255, 255, 255);
-  --dark-theme-bg-first: rgb(52, 52, 52);
-  --dark-theme-bg-second: rgb(27, 27, 27);
-  --light-theme-border-color: rgb(205, 205, 205);
-  --dark-theme-border-color: rgb(133, 133, 133);
-  --font-body: "Inter", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-      "Droid Sans", "Helvetica Neue", sans-serif;
-  --aside-ref-gap: 20px;
-  --header-height: calc(4rem + 1px);
-  --visit-refs-height: 2rem;
-}
-
 body {
-  font-family: var(--font-body);
-  color: var(--light-theme-color);
+  font-family: "Inter", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  color: black;
   line-height: 1.75;
 }
 
@@ -27,28 +12,15 @@ body {
   margin: 0 auto;
 }
 
-.div_bg-first {
-  background-color: var(--light-theme-bg-first);
-}
-
-.div_bg-second {
-  background-color: var(--light-theme-bg-second);
-}
-
-.div_border {
-  border: 1px solid var(--light-theme-border-color);
-}
-
-.div_border-bottom {
-  border-bottom: 1px solid var(--light-theme-border-color);
-}
-
-.ref-color-blue-underline {
+.ref_color_blue {
   color: rgb(0, 105, 206);
+}
+
+.ref_decoration_underline {
   text-decoration: underline;
 }
 
-.ref-bg-gray {
+.ref_bg_gray {
   background-color: rgb(242, 241, 241);
 }
 
@@ -57,112 +29,140 @@ body {
   padding: 0 5px;
 }
 
-.ref-weight-bold {
+.ref_weight_bold {
   font-weight: bold;
 }
 
-.top-banner .top-banner__AI-Help {
+.top-banner {
+  background-color: rgb(249, 249, 251);
+}
+.top-banner__AI-Help {
+  /* Такая вложенность в CSS превратится в такое ".top-banner .top-banner__ai-help" (вес = 2, вместо 1)  Вместо этого стоит писать так
+    .top-banner {
+       ...
+       &__ai-help {
+       ....
+
+       В таком случае, в CSS вместо & автоматически подставится название родительского класса (top-banner)
+   */
   text-align: center;
   padding: 12px;
   font-size: 1rem;
 }
-.top-banner .top-banner__AI-Help .top-banner__AI-Help_color {
+.top-banner__AI-Help_color {
   color: rgb(142, 85, 255);
 }
 
-.header-sticky {
-  position: sticky;
+.body__header-sticky {
+  position: sticky; /* Тут ты явно указываешь позицию, а это та самая "внешняя геометрия""*/
   top: -1px;
   z-index: 1000;
 }
-.header-sticky .header .header-main {
-  height: var(--header-height);
-  font-size: 0.8rem;
-  padding: 10px;
+
+.header {
+  /*
+      Вообще стоит избегать вложенности где не используется &. В данном случае, header-sticky, header, header-main должны лежать не внутри друг друга а на одном уровне. А уже header-main__logo лежит внутри header-main, но при этом нужно использовать &.
+      Если оставить так, то когда ты будешь использовать header блок в другом месте, стили банально не применятся, поскольку ты явно указал "применить стили для header Только в том случае, когда он лежит внутри header-sticky
+  */
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(205, 205, 205);
 }
-.header-sticky .header .header-main .header-main__logo {
+.header_height {
+  height: 65px;
+}
+.header-main {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  font-size: 0.8rem;
+  padding: 0 10px;
+}
+.header-main__logo {
   display: flex;
   align-items: center;
 }
-.header-sticky .header .header-main .header-main__logo a .logo-_, .header-sticky .header .header-main .header-main__logo .logo-m {
+.header-main__logo .logo-line,
+.header-main__logo .logo-m {
   fill: #0069c2;
 }
-.header-sticky .header .header-main .header-main__logo a svg {
+.header-main__logo .logo { /* Использовал теги вместо классов */
   height: 1.7rem;
 }
-.header-sticky .header .header-main .header-main__nav {
+.header-main__nav {
   display: flex;
   width: 100%;
   justify-content: space-between;
   gap: 0.5rem;
   align-items: center;
 }
-.header-sticky .header .header-main .header-main__nav .header-main-refs .header-main-ref {
+.header-main__nav-btn {
+  display: none;
+}
+.header-main-ref {
   cursor: pointer;
   padding: 10px;
   font-size: 0.9rem;
 }
-.header-sticky .header .header-main .header-main__nav .header-main-refs .header-main-ref:hover {
+.header-main-ref:hover {
   background-color: rgb(255, 215, 222);
 }
-.header-sticky .header .header-main .header-main__nav .header-main-refs .header-main-ref_beta {
+.header-main-ref_beta {
   position: relative;
 }
-.header-sticky .header .header-main .header-main__nav .header-main-refs .header-main-ref_beta::after {
+.header-main-ref_beta::after {
   content: "BETA";
   position: absolute;
   top: -7px;
   right: -25px;
   font-size: 0.5rem;
   background-color: rgb(214, 0, 88);
-  color: var(--dark-theme-color);
+  color: white;
   padding: 0 3px;
   border-radius: 10px;
   font-weight: bold;
 }
-.header-sticky .header .header-main .header-main__nav .header-main__icons {
+.header-main__icons {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.header-sticky .header .header-main .header-main__nav .header-main__icons .header-main__theme {
+.header-main__theme {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.header-sticky .header .header-main .header-main__nav .header-main__icons .header-main__search {
-  border: 1px solid var(--light-theme-border-color);
+.header-main__search {
+  border: 1px solid rgb(205, 205, 205);
   display: flex;
   align-items: center;
   padding: 5px;
   border-radius: 15px;
 }
-.header-sticky .header .header-main .header-main__nav .header-main__icons .header-main__search .search {
+.header-main__search .search {
   border: none;
   width: 100%;
   position: relative;
 }
-.header-sticky .header .header-main .header-main__nav .header-main__icons .header-main__search .search__glass {
+.header-main__search .search__glass {
   cursor: pointer;
 }
-.header-sticky .header .header-main .header-main__nav .header-main__icons .header-main__sing-up .sing-up {
-  background-color: var(--light-theme-color);
-  color: var(--dark-theme-color);
+.header-main__sing-up .sing-up__button {
+  background-color: black;
+  color: white;
   font-weight: bold;
   padding: 5px 15px 10px 15px;
   border-radius: 5px;
 }
-.header-sticky .header__visit-refs {
-  height: var(--visit-refs-height);
+
+.header__visit-refs {
+  background-color: rgb(249, 249, 251);
+  border-bottom: 1px solid rgb(205, 205, 205);
+  height: 2rem;
+  padding-left: 20px;
 }
-.header-sticky .header__visit-refs .visit-refs__refs {
+.header__visit-refs .visit-refs__refs {
   display: flex;
   gap: 20px;
-}
-
-.header__header-main {
-  display: flex;
-  gap: 10px;
 }
 
 .header-main__header-main-refs {
@@ -170,156 +170,152 @@ body {
   gap: 10px;
 }
 
-.header-main__nav_open {
-  display: none;
+.wrapper {
+  display: flex;
 }
 
-main .aside {
+.aside {
   position: sticky;
-  top: calc(var(--header-height) + var(--visit-refs-height));
+  top: calc(65px + 2rem);
   width: 20%;
   max-height: 90vh;
   overflow: auto;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: var(--aside-ref-gap);
+  gap: 20px;
 }
-main .aside .aside__element {
+.aside__element {
   display: flex;
   flex-direction: column;
-  gap: var(--aside-ref-gap);
+  gap: 20px;
   font-size: 0.9rem;
 }
-main .aside .aside__element .aside__details {
+.aside__details {
   cursor: pointer;
 }
-main .aside .aside__element .aside__element-title {
+.aside__element-title {
   font-weight: bold;
 }
-main .aside .aside__element .aside__ref {
+.aside__ref {
   cursor: pointer;
 }
-main .main {
+
+.main {
+  width: 60%;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-main .main .main__title {
+.main__title {
   font-size: 2.2rem;
   font-weight: 700;
 }
-main .main .main__item {
+.main__item {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-main .main .main__item .main__item-title {
+.main__item-title {
   font-size: 2rem;
   font-weight: 500;
 }
-main .main .main__item .main__item-dl .main__item-dd {
+.main__item-dd {
   padding-left: 20px;
 }
-main .main .main__item .main__item-banner {
+.main__item-banner {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  background-color: var(--light-theme-bg-first);
+  background-color: rgb(249, 249, 251);
 }
-main .main .main__item .main__item-banner .banner__get-started {
+.main__item-banner .banner__get-started {
   font-weight: 700;
 }
-main .main .main__item .main__item-banner .banner__list-refs {
+.main__item-banner .banner__list-refs {
   list-style-type: circle;
   padding-left: 30px;
 }
-main .main .main-highlight {
+.main-highlight {
   background-color: rgb(242, 241, 241);
 }
-main .in-this-article {
+
+.in-this-article {
   width: 20%;
+  position: sticky;
+  top: calc(65px + 2rem);
 }
-main .in-this-article .in-this-article__refs {
+.in-this-article__refs {
   display: flex;
   flex-direction: column;
 }
-main .in-this-article .in-this-article__refs .in-this-article__ref {
+.in-this-article__ref {
   padding: 10px;
   border-left: 3px solid rgb(205, 205, 205);
 }
-main .in-this-article .in-this-article__refs .in-this-article__ref_highlight {
+.in-this-article__ref_highlight {
   background-color: rgb(255, 215, 222);
   border-left: 3px solid rgb(211, 0, 56);
 }
 
-.wrapper {
-  display: flex;
-}
-
-.wrapper__main {
-  width: 60%;
-  padding: 40px;
-}
-
 footer {
-  background-color: var(--light-theme-bg-first);
+  background-color: rgb(249, 249, 251);
 }
-footer .footer {
+
+.footer {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
 }
-footer .footer .main .main__logo {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-footer .footer .main .main__logo .main__text {
-  margin-bottom: 20px;
-}
-footer .footer .main .main__logo .main__social-icons {
-  display: flex;
-  gap: 10px;
-}
-footer .footer .main .nav {
-  font-size: 0.8rem;
-}
-footer .footer .main .nav .nav__ref {
-  padding: 5px;
-}
-footer .footer .moz {
-  border-top: 1px solid var(--light-theme-border-color);
-  padding-top: 20px;
-}
-footer .footer .moz .moz__nav {
-  display: flex;
-  gap: 15px;
-}
-footer .footer .moz .moz__nav .moz__ref {
-  text-decoration: underline;
-  font-size: 0.7rem;
-}
-footer .footer .legal .legal__information {
-  font-size: 0.7rem;
-}
-footer .footer .legal .legal__information .legal__ref {
-  text-decoration: underline;
-}
 
-.footer__main {
+.footer-main {
   display: flex;
   justify-content: space-between;
 }
-
-.main__nav {
+.footer-main__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-main__text {
+  margin-bottom: 20px;
+}
+.footer-main__social-icons {
+  display: flex;
+  gap: 10px;
+}
+.footer-main__nav {
   display: flex;
   flex-direction: column;
 }
+.footer-main__nav .nav {
+  font-size: 0.8rem;
+}
+.footer-main__nav .nav__ref {
+  padding: 5px;
+}
 
-.footer__moz {
+.footer-moz {
+  border-top: 1px solid var(--light-theme-border-color);
+  padding-top: 20px;
   display: flex;
   gap: 30px;
+}
+.footer-moz__nav {
+  display: flex;
+  gap: 15px;
+}
+.footer-moz__ref {
+  text-decoration: underline;
+  font-size: 0.7rem;
+}
+
+.footer-legal__information {
+  font-size: 0.7rem;
+}
+.footer-legal__ref {
+  text-decoration: underline;
 }/*# sourceMappingURL=style.css.map */
