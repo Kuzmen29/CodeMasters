@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="app">
+            <form method="post" class="app__registration registration" novalidate>
+                <label for="registration__email" class="registration__label">Введите логин*<br>
+                    <input type="email" class="registration__input registration__email" id="registration__email" name="email" placeholder="ivanov@mail.ru">
+                    <h1 class="registration__error registration__email_error"></h1>
+                </label>
+                <label for="registration__full-name" class="registration__label">Введите ФИО*<br>
+                    <input type="text" class="registration__input registration__full-name" id="registration__full-name" name="full-name" placeholder="Иван Иванов">
+                    <h1 class="registration__error registration__full-name_error"></h1>
+                </label>
+                <label for="registration__password" class="registration__label">Введите пароль*<br>
+                    <input type="password" class="registration__input registration__password" id="registration__password" name="password" placeholder="2qwerty@">
+                    <h1 class="registration__error registration__password_error"></h1>
+                </label>
+                <label for="registration__password-repeat" class="registration__label">Повторите пароль*<br>
+                    <input type="password" class="registration__input registration__password-repeat" id="registration__password-repeat">
+                    <h1 class="registration__error registration__password-repeat_error"></h1>
+                </label>
+
+                <label class="registration__label agreement option">
+                    <input class="agreement__input registration__agreement" type="checkbox">
+                    <span class="agreement__box"></span>
+                    Я подтверждаю, что хочу зарегистрироваться
+                    <h1 class="registration__error registration__agreement_error"></h1>
+                </label>
+
+                <input class="registration__submit" type="submit">
+                
+            </form>
+
+            <div class="app__form-ok form-ok">
+                <h1 class="form-ok__title">Вы успешно создали аккаунт</h1>
+            </div>
+
+            <script src="script.js"></script>
+        </div>
+    </div>
+</body>
+</html>
