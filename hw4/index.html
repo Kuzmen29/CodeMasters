@@ -11,9 +11,14 @@
     <div class="container">
         <div class="app">
             <form method="post" class="app__registration registration" novalidate>
+                <!--
+                1. я много раз говорил по поводу br
+                2. label хороший компонент на создание отдельного бэм блока (form-control например).
+                 Поскольку всё что внутри у него, в твоем случае, "привязано" к форме регистрации, хотя на деле, это относится конкретно к контролу,а контролы в свою очередь могут быть и вне формы
+                -->
                 <label for="registration__email" class="registration__label">Введите логин*<br>
                     <input type="email" class="registration__input registration__email" id="registration__email" name="email" placeholder="ivanov@mail.ru">
-                    <h1 class="registration__error registration__email_error"></h1>
+                    <h1 class="registration__error registration__email_error"></h1> <!-- IDE ругается на h1 внутри label, надо разобраться-->
                 </label>
                 <label for="registration__full-name" class="registration__label">Введите ФИО*<br>
                     <input type="text" class="registration__input registration__full-name" id="registration__full-name" name="full-name" placeholder="Иван Иванов">

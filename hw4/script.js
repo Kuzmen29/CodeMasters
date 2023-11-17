@@ -29,6 +29,7 @@ registrationEmail.addEventListener('input', function (event) {
     registrationEmailError.textContent = '';
     registrationEmailError.style.display = 'none';
 
+    /* Давай вынесем участки кода которые повторяются и отвечают за проверки в отдельные функции. Например проверку на максимальную/минимальную длинну можно вынести в функции*/
     if(this.value.length>100 && !regexp.test(this.value)){
         registrationEmailError.textContent += 'Максимальный размер строки 100 символов\n';
         registrationEmailError.textContent += 'Email должен быть в формате (xxx@xxx.xx)';
@@ -143,7 +144,7 @@ registration.addEventListener('submit', function (event) {
             email : ${registrationEmail.value},
             fullname : ${registrationFullname.value},
             password : ${registrationPassword.value}
-        `;
+        `; /* Это правильнее делать при помощи JSON.stringify*/
         localStorage.setItem(`${registrationEmail.value}`, data);
         registration.style.display = 'none';
         formOk.style.display = 'block';
