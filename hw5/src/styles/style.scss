@@ -1,0 +1,195 @@
+@use './reset';
+body {
+    background-color: blanchedalmond;
+}
+@font-face {
+    font-family: 'Pravda';
+    src: url(../../assets/fonts/Pravda\ Newspaper.otf);
+}
+:root {
+    font-family: 'Pravda';
+}
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.body__app {
+    margin-top: 50px;
+}
+
+.game {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 33rem;
+    min-height: 33rem;
+
+    margin: 0 auto;
+
+    padding: 5px 20px;
+
+    background-color: white;
+
+    border-radius: 9px;
+
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        background-color:darkorange;
+        border-radius: 9px;
+        
+        padding: 10px;
+        &_flex {
+            display: flex;
+        }
+    }
+    &__next {
+        display: none;
+    }
+    &__again {
+        display: none;
+    }
+    &__result {
+        align-self: center;
+    }
+
+}
+.menu {
+    padding-bottom: 10px;
+    border-bottom: 3px dotted brown ;
+
+    display: grid;
+    grid-template-areas: "logo statistics" "sets sets";
+    grid-template-columns: 5fr 1fr;
+
+    &__logo {
+        grid-area: logo;
+        width: 5rem;
+        justify-self: center;
+        background-image: url(../../redstar.png);
+
+        // &-img {
+        //     background-image: url(../../redstar.png);
+        // }
+    }
+    &__sets {
+        grid-area: sets;
+    }
+    &__statisctics {
+        grid-area: statistics;
+        justify-self: center;
+        align-self: center;
+        background-image: url(../../statistics.png);
+    }
+}
+.sets {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+    &__item {
+        cursor: pointer;
+        padding: 10px;
+
+        border: 2px solid orange;
+        border-radius: 8px;
+        background-color: rgb(234, 151, 123);
+
+        font-size: 1.2rem;
+        text-align: center;
+        flex: 0 0 30%;
+   
+        color: brown;
+
+        &:hover {
+            background-color: rgb(234, 151, 123,0.5);
+        }
+    }
+}
+.question {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    font-size: 1.5rem;
+    color:white;
+
+    &__title {
+        text-align: center;
+    }
+    &__options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        grid-gap: 10px;
+    }
+    &__option {
+        padding: 10px 30px;
+        color: black;
+
+        cursor: pointer;
+        border: 1px solid orange;
+        justify-self: center;
+        font-size: inherit;
+        background-color: beige;
+
+        &:hover {
+            background-color: rgb(245, 245, 219,0.5)
+        }
+        
+    }
+    &_true {
+        background-color: green;
+        cursor: not-allowed;
+        pointer-events: none;
+        
+    }
+    &_false {
+        background-color: red;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+.result {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+
+    &__value {
+        display: inline-block;
+        color: brown;
+        background-color: white;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
+    &__item {
+        line-height: 1.2;
+    }
+}
+.button {
+    padding: 10px 10px;
+    border-radius: 9px;
+    background-color:cornflowerblue;
+    align-self: center;
+}
+.next {
+    display: block;
+    align-self: center;
+}
+.again {
+    display: block;
+}
