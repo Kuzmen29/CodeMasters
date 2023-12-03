@@ -1,49 +1,46 @@
-import { PackageOfQuestions, SetItemHTMLDivElement } from "./types";
-import { Game } from "./game";
-import { getSets } from "./../service/menu.service";
+import { type PackageOfQuestions, type SetItemHTMLDivElement } from './types'
+import { Game } from './game'
+import { getSets } from '../services/menu.service'
 
+export async function start (): Promise<void> {
+  const data: PackageOfQuestions[] = await getSets()
+  const gameSets = document.querySelector('.menu__sets')
 
-export async function start(){
+  let myGame: Game
+  for (const item of data) {
+    const setsItem: SetItemHTMLDivElement = document.createElement('div')
+    setsItem.setID = item.id
+    setsItem.textContent = item.set
+    setsItem.classList.add('sets__item')
+    gameSets?.append(setsItem)
 
-    let data : PackageOfQuestions[] = await getSets()
-    let gameSets = document.querySelector('.menu__sets');
+    setsItem.addEventListener('click', (event) => {
+      event.preventDefault()
 
-    let myGame : Game;
-    for(let item of data) {
+      const eventTarget: any = event.target
 
-        let setsItem : SetItemHTMLDivElement = document.createElement('div');
-        setsItem.setID = item.id;
-        setsItem.textContent = item.set;
-        setsItem.classList.add('sets__item');
-        gameSets.append(setsItem);
+      // clear()
+      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+      if (myGame) {
+        myGame.endGame()
+      }
 
-        setsItem.addEventListener('click', (event)=> {
-            event.preventDefault();
-
-            let eventTarget : any = event.target;
-
-           // clear()
-           if (myGame) {
-            myGame.endGame()
-           }
-           
-            myGame = new Game(eventTarget.setID);
-            
-        })
-    }
+      myGame = new Game(eventTarget.setID)
+    })
+  }
 }
 
-function clear() {
-    let question = document.querySelector('.game__question');
-    if (question) {
-        question.remove();
-    }
-    let result = document.querySelector('.result');
-    if (result) {
-        result.remove();
-    }
-    let next = document.querySelector('.game__next');
-    let again = document.querySelector('.game__again');
-    again.classList.remove('again');
-    next.classList.remove('next');
-}
+// function clear () {
+//   const question = document.querySelector('.game__question')
+//   if (question) {
+//     question.remove()
+//   }
+//   const result = document.querySelector('.result')
+//   if (result) {
+//     result.remove()
+//   }
+//   const next = document.querySelector('.game__next')
+//   const again = document.querySelector('.game__again')
+//   again.classList.remove('again')
+//   next.classList.remove('next')
+// }
