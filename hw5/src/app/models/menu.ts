@@ -4,6 +4,7 @@ import { getSets } from '../services/menu.service'
 
 export async function start (): Promise<void> {
   const data: PackageOfQuestions[] = await getSets()
+
   const gameSets = document.querySelector('.menu__sets')
 
   let myGame: Game
@@ -22,7 +23,7 @@ export async function start (): Promise<void> {
       // clear()
       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (myGame) {
-        myGame.endGame()
+        location.reload()
       }
 
       myGame = new Game(eventTarget.setID)

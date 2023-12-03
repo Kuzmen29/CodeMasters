@@ -87,11 +87,171 @@
     {
         "id": 2,
         "set": "История по-солженицыну",
-        "questions": []
+        "setSize" : 3,
+        "questions": [
+            {
+                "id" : 1,
+                "text": "Каково ТОЧНОЕ количество жертв сталинских репрессий?",
+                "answers": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "1 млрд.",
+                        "correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "20 млн.",
+                        "correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "0",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "id" : 2,
+                "text": "Самая отсталая страна XX века",
+                "answers": [
+                    {
+                        "id": 1,
+                        "text": "Великобритания",
+                        "correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "СССР",
+                        "correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "США",
+                        "correct": false 
+                    },
+                    {
+                        "id": 4,
+                        "text": "Лапландия",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "id" : 3,
+                "text": "Великий мыслитель",
+                "answers": [
+                    {
+                        "id": 1,
+                        "text": "Владимир Ильич Ленин",
+                        "correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Платон",
+                        "correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Никколо Макиавелли",
+                        "correct": false 
+                    },
+                    {
+                        "id": 4,
+                        "text": "Иван Александрович Ильин",
+                        "correct": true
+                    }
+                ]
+            }
+        ]
     },
     {
         "id": 3,
         "set": "История Современной России",
-        "questions": []
+        "setSize" : 3,
+        "questions": [
+            {
+                "id" : 1,
+                "text": "Когда произошел дефолт 1998 года в России",
+                "answers": [
+                    {
+                        "id": 1,
+                        "text": "1991",
+                        "correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "1998",
+                        "correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "2000",
+                        "correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "2008",
+                        "correct": false
+                    }
+                ]
+            },
+            {
+                "id" : 2,
+                "text": "Дата вступления Владимира Путина на президенство в первый раз",
+                "answers": [
+                    {
+                        "id": 1,
+                        "text": "22 июня 2000",
+                        "correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "1 сентября 1998",
+                        "correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1 июня 2012",
+                        "correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "7 мая 2000",
+                        "correct": true
+                    }
+                ]
+            },
+            {
+                "id" : 3,
+                "text": "дата присоединения Крыма к Российской Федерации",
+                "answers": [
+                    {
+                        "id": 1,
+                        "text": "18 марта 2014",
+                        "correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "1 июня 2014",
+                        "correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "29 января 2014",
+                        "correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 октября",
+                        "correct": false
+                    }
+                ]
+            }
+        ]
     }
 ]
