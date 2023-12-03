@@ -1,5 +1,6 @@
 import { PackageOfQuestions, Question, Answer, SetItemHTMLDivElement, SetItemEventTarget} from "../models/types";
 
+import { getSetSize, getQuestionTitle, getAnswersTitle, getCorrect  } from "../service/game.service";
 export class Game {
 
     private _points : number;
@@ -13,23 +14,29 @@ export class Game {
     again = document.querySelector('.game__again');
     gameField = document.querySelector('.game__field');
 
-    constructor(private PackageOfQuestions : PackageOfQuestions) {
-        this._questions = this.PackageOfQuestions.questions;
-        this._points = 0;
-        this._questionNumber = 0;
-        this._NumberOfQuestions = this._questions.length;
-        this.runGame()
+    constructor(private setID : number) {
 
         this.next.addEventListener('click',()=> this.nextQuestion());
         this.again.addEventListener('click',()=> this.playAgain());
+        this.init();
+        
     }
-    
-    runGame(){
+
+    async init(){
+        this._points = 0;
+        this._questionNumber = 0;
+        this._NumberOfQuestions = await getSetSize(this.setID);
+        this.runGame()
+    }
+
+
+
+    async runGame(){
         this.createQuestion();
         this.next?.classList.add('next')
     }
 
-    nextQuestion() {
+    async nextQuestion() {
         if (this._questionNumber < this._NumberOfQuestions) {
             console.log(2);
             this.createQuestion();
@@ -43,12 +50,12 @@ export class Game {
         }
     }
     
-    createQuestion() {
+    async createQuestion() {
         this.deleteQuestion();
 
-        console.log(3);
-        let question : Question = this._questions[this._questionNumber];
-        let answers : Answer[] = question.answers;
+        let questionTitle : string = await getQuestionTitle(this.setID, this._questionNumber+1);
+
+        let answersTitle : Answer[] = await getAnswersTitle(this.setID,this._questionNumber+1) ;
         
 
         let quest = document.createElement('div');
@@ -57,37 +64,41 @@ export class Game {
         this.gameField.prepend(quest);
 
         quest.insertAdjacentHTML('afterbegin', `
-        <h1 class="question__title">${question.question}</h1>
+        <h1 class="question__title">${questionTitle}</h1>
         <div class="question__options"></div>
         `);
 
         let questionOptions = document.querySelector('.question__options');
-        for(let answer of answers) {
+        for(let answer of answersTitle) {
             let questionOption: SetItemHTMLDivElement = document.createElement('div');
             questionOption.classList.add('question__option');
             questionOption.textContent = answer.text;
-            questionOption.answerOfQuestion = answer.correct;
+            questionOption.answerID = answer.id;
 
             questionOptions.insertAdjacentElement('beforeend',questionOption);
         }        
 
         let questionOption = document.querySelectorAll('.question__option');
 
-        questionOption.forEach(item => item.addEventListener('click', (event)=>{
+        questionOption.forEach(item => item.addEventListener('click', async (event)=>{
 
             let eventTarget : any = event.target;
 
-            if(eventTarget.answerOfQuestion) {
+            let correctID = await getCorrect(this.setID,this._questionNumber+1, eventTarget.answerID)
+            console.log("! " +correctID);
+            if(eventTarget.answerID == correctID) {
+                console.log("@!!!");
+                
                 eventTarget.classList.add('question_true')
                 ++this._points;
             } else {
                 eventTarget.classList.add('question_false')
-                questionOption.forEach((item : any) => item.answerOfQuestion ? item.classList.add('question_true') : 1 )
+                questionOption.forEach((item : any) => item.answerID==correctID ? item.classList.add('question_true') : 1 )
             }
             ++this._questionNumber;
         }))
-
     }
+
     deleteQuestion() {
         let question = document.querySelector('.question');
         if (question) {

@@ -4,11 +4,14 @@ import { PackageOfQuestions } from "./models/types";
 
 import '../styles/style.scss'
 
-let data : PackageOfQuestions[];
+// let data : PackageOfQuestions[];
 
-fetch('http://localhost:3000/data').then((response)=>response.json()).then((response)=> {
-    data = response;
-    start(data);
-});
+// !async function () {
+//     data = await (await fetch('http://localhost:3000/api/json')).json();
+//     console.log(data);
+//     start(data);
+// }()
+
+start();
 
 

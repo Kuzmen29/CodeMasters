@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --env mode=development",
-    "json:server": "json-server --watch data/data.json",
+    "server": "node server/server.js",
     "build": "webpack",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production"
@@ -15,10 +15,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "-": "^0.0.1",
-    "json-server": "^0.17.4"
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "css-loader": "^6.8.1",
     "file-loader": "^6.2.0",

@@ -14,12 +14,12 @@ export interface Question {
 export interface Answer {
     "id": number,
     "text": string,
-    "correct": boolean,
+    "correct"? : boolean,
 }
 
 export interface SetItemHTMLDivElement extends HTMLDivElement {
-    "setItem"? : PackageOfQuestions;
-    "answerOfQuestion"? : boolean
+    "setID"? : number;
+    "answerID"? : number
 }
 export interface SetItemEventTarget extends EventTarget {
     "setItem"? : PackageOfQuestions;

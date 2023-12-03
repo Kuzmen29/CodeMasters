@@ -1,14 +1,18 @@
 import { PackageOfQuestions, SetItemHTMLDivElement } from "./types";
 import { Game } from "./game";
+import { getSets } from "./../service/menu.service";
 
 
-export function start(data: PackageOfQuestions[]){
+export async function start(){
+
+    let data : PackageOfQuestions[] = await getSets()
     let gameSets = document.querySelector('.menu__sets');
 
+    let myGame : Game;
     for(let item of data) {
 
         let setsItem : SetItemHTMLDivElement = document.createElement('div');
-        setsItem.setItem = item;
+        setsItem.setID = item.id;
         setsItem.textContent = item.set;
         setsItem.classList.add('sets__item');
         gameSets.append(setsItem);
@@ -18,9 +22,12 @@ export function start(data: PackageOfQuestions[]){
 
             let eventTarget : any = event.target;
 
-            clear()
-            let myGame : Game;
-            myGame = new Game(eventTarget.setItem);
+           // clear()
+           if (myGame) {
+            myGame.endGame()
+           }
+           
+            myGame = new Game(eventTarget.setID);
             
         })
     }
