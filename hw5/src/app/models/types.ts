@@ -1,5 +1,5 @@
 export interface PackageOfQuestions {
-  'id': number
+  id: number // обычно не принято писать ковычки с названийми ключей,
   'set': string
   'questions': Question[]
 }
