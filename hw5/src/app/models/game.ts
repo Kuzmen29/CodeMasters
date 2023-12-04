@@ -13,7 +13,7 @@ export class Game {
   gameField = document.querySelector('.game__field')
 
   constructor (private readonly setID: number) {
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    // Использование таких комментов, чтобы прибить линтер означает, что что-то пошло не так. В идеале, этого не допускать, а разобраться в чем проблема
     this.next?.addEventListener('click', async () => { await this.nextQuestion() })
     this.again?.addEventListener('click', () => { this.playAgain() })
     void this.init()
@@ -50,7 +50,7 @@ export class Game {
     const questionTitle: string = await getQuestionTitle(this.setID, this._questionNumber + 1)
 
     const answersTitle: Answer[] = await getAnswersTitle(this.setID, this._questionNumber + 1)
-
+// getQuestionTitle и getAnswersTitle можно сделать одним запросом, так будет правильнее с точки зрения ресурсов
     const quest = document.createElement('div')
     quest.classList.add('game__question')
     quest.classList.add('question')
@@ -77,22 +77,19 @@ export class Game {
     const questionOption = document.querySelectorAll('.question__option')
 
     questionOption.forEach(item => {
-      item.addEventListener('click', (event) => {
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        (async (): Promise<void> => {
+      item.addEventListener('click', async (event) => {
           const eventTarget: any = event.target
 
-          const correctID = await getCorrect(this.setID, this._questionNumber + 1, eventTarget.answerID)
+          const correctID = await getCorrect(this.setID, this._questionNumber + 1)
           console.log('! ' + correctID)
           if (eventTarget.answerID === correctID) {
-            eventTarget.classList.add('question_true')
-            ++this._points
+              eventTarget.classList.add('question_true')
+              ++this._points
           } else {
-            eventTarget.classList.add('question_false')
-            questionOption.forEach((item: any) => item.answerID === correctID ? item.classList.add('question_true') : 1)
+              eventTarget.classList.add('question_false')
+              questionOption.forEach((item: any) => item.answerID === correctID ? item.classList.add('question_true') : 1)
           }
           ++this._questionNumber
-        })()
       })
     })
   }
